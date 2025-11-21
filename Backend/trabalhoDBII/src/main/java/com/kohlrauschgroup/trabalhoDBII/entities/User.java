@@ -14,10 +14,6 @@ public class User {
     private UUID id;
     private String name;
 
-    public void generateUUID(){
-        this.id = UUID.randomUUID();
-    }
-
     public UUID getId(){
         return this.id;
     }
@@ -28,5 +24,9 @@ public class User {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public void generateUUID(){
+        this.id = UUID.randomUUID();
     }
 }

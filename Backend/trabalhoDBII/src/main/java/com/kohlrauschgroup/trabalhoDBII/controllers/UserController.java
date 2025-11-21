@@ -39,7 +39,7 @@ public class UserController {
         try{
             return this.userService.updateUser(id, user);
         } catch (Exception e){
-            throw new RuntimeException("Unable to update user! Check the request body!");
+            throw new RuntimeException("User not found or unable to update user!");
         }
     }
 
