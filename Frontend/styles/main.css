@@ -1,0 +1,52 @@
+/* (manter reset e base do estilo anterior) */
+
+/* Header */
+.header { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; background:#2ea2ff; color:#fff; }
+.header .left-controls { display:flex; gap:10px; align-items:center; }
+.header h1 { margin:0; font-size:1.15rem; }
+.header .center-controls { display:flex; gap:8px; align-items:center; }
+.header button { background:transparent; border: none; color: white; font-size:1.1rem; cursor:pointer; }
+.header .right-controls { display:flex; gap:8px; align-items:center; }
+
+/* Container + Sidebar */
+.container { display:flex; gap:16px; padding:12px; max-width:1400px; margin:0 auto; }
+.sidebar { width:260px; background:#1e9eff; color:#fff; padding:12px; border-radius:6px; min-height:72vh; }
+.sidebar .sidebar-block { margin-bottom:12px; }
+.sidebar input, .sidebar select { width:100%; padding:8px; margin-top:6px; border-radius:6px; border: none; }
+.small { padding:6px 8px; border-radius:6px; background:rgba(255,255,255,0.12); color:#fff; border:none; cursor:pointer; }
+
+/* Main area and view container */
+.main-area { flex:1; min-height:72vh; }
+#viewContainer { background:#fff; border-radius:8px; padding:12px; min-height:72vh; }
+
+/* Calendar grid for Month view */
+.month-grid { display:grid; grid-template-columns: repeat(7,1fr); gap:8px; }
+.month-cell { border:1px solid #ddd; min-height:110px; padding:8px; border-radius:6px; position:relative; background:#fff; }
+.month-cell .daynum { position:absolute; top:8px; right:8px; font-weight:600; color:#333; }
+.event-pill { display:block; margin-top:6px; padding:6px 8px; border-radius:6px; background:#2ea2ff; color:#fff; cursor:pointer; font-size:0.85rem; }
+
+/* Programados list view */
+.programados-list { display:flex; flex-direction:column; gap:8px; }
+.programado-item { display:flex; gap:12px; align-items:center; padding:10px; border-bottom:1px solid #eee; }
+
+/* Modal and form adjustments */
+.modal { width:880px; max-width:94%; }
+.form-row { display:flex; gap:10px; align-items:center; margin-bottom:10px; }
+.form-row .wide { flex:1; }
+
+/* Date-range picker small */
+.inline-dates { display:flex; gap:8px; align-items:center; }
+.inline-dates input[type="date"] { padding:8px; border-radius:6px; border:1px solid #ddd; }
+
+/* Horário (De / Até) */
+.time-row { display:flex; gap:8px; }
+.time-row input[type="time"] { padding:6px; border-radius:6px; border:1px solid #ddd; }
+
+/* Sidebar hidden */
+.sidebar.hidden { display:none; }
+
+/* Desktop-only: amplia tamanho */
+@media (max-width:1200px) {
+  /* Você disse que não precisa mobile; manter responsivo moderado */
+  #viewContainer { min-height:60vh; }
+}

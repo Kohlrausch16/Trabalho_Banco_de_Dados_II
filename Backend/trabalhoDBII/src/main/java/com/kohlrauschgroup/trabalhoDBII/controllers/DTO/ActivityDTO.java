@@ -1,6 +1,5 @@
 package com.kohlrauschgroup.trabalhoDBII.controllers.DTO;
 
-
 import com.kohlrauschgroup.trabalhoDBII.entities.Activity;
 import com.kohlrauschgroup.trabalhoDBII.entities.User;
 import com.kohlrauschgroup.trabalhoDBII.services.UserService;

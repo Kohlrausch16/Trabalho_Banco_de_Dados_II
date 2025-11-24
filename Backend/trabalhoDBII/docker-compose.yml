@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # ----------------------------------------------------
+  # 1. SERVIÇO: MONGODB
+  # ----------------------------------------------------
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-server
+    # Mapeia a porta do MongoDB (27017) para a sua máquina local (opcional, mas útil para acesso via mongosh)
+    ports:
+      - "27017:27017"
+    # Define variáveis de ambiente para a autenticação do MongoDB
+    environment:
+      # Usuário principal
+      MONGO_INITDB_ROOT_USERNAME: trabalhoDBII
+      # SENHA ATUALIZADA
+      MONGO_INITDB_ROOT_PASSWORD: trabalhoDBII
+      # O banco de dados a ser criado e usado por padrão
+      MONGO_INITDB_DATABASE: trabalhoDBII
+    # Define volumes para persistência de dados
+    volumes:
+      - mongodb_data:/data/db
+
+  # ----------------------------------------------------
+  # 2. SERVIÇO: API SPRING BOOT (SUA APLICAÇÃO)
+  # ----------------------------------------------------
+  api:
+    # Usa a imagem que você acabou de construir
+    image: trabalho-bdii-app
+    container_name: trabalho-bdii-api
+    # Mapeia a porta da API (8080) para a sua máquina local
+    ports:
+      - "8080:8080"
+    # Garante que o MongoDB inicie antes da API
+    depends_on:
+      - mongodb
+    # Variáveis de ambiente para conectar a API ao MongoDB
+    environment:
+      # A URL de conexão usa o NOME DO CONTAINER do MongoDB (mongodb)
+      # CREDENCIAIS ATUALIZADAS: usuario:trabalhoDBII, senha:trabalhoDBII
+      SPRING_DATA_MONGODB_URI: "mongodb://trabalhoDBII:trabalhoDBII@mongodb:27017/trabalhoDBII?authSource=admin"
+
+# ----------------------------------------------------
+# VOLUMES (Para persistência dos dados do MongoDB)
+# ----------------------------------------------------
+volumes:
+  mongodb_data:
