@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles/main.css?v=1">
   <script src="src/utils.js"></script>
   <script src="src/api.js"></script>
   <script src="src/compromisso.js"></script>
@@ -19,54 +20,30 @@
 
 <div class="flex">
 
-  <!-- SIDEBAR -->
+  <!--SIDEBAR-->
   <aside id="sidebar"
-         class="w-72 bg-blue-500 text-white p-6 space-y-6 min-h-screen transition-all duration-300">
-      
-      <!-- Botão mostrar/ocultar sidebar -->
-      <button id="toggleSidebar"
-        class="p-2 rounded hover:bg-blue-600 focus:outline-none mb-4">
-        ☰
-      </button>
-
-      <h2 class="text-xl font-semibold">Filtros</h2>
-
-      <!-- Pesquisar título -->
-      <div>
-        <label class="font-semibold text-sm">Pesquisar título</label>
-        <input id="searchTitle"
-          class="mt-1 w-full px-3 py-2 rounded bg-white text-black"
-          placeholder="Pesquisar..." />
+         class="w-72 bg-blue-500 text-white p-6 space-y-6 min-h-screen transition-all duration-300 relative flex flex-col">
+      <div class="flex justify-end">
+        <button id="toggleSidebar"
+          class="p-2 rounded hover:bg-blue-600 focus:outline-none z-10">
+          ☰
+        </button>
       </div>
-
-      <!-- Filtro por pessoa -->
-      <div>
-        <label class="font-semibold text-sm">Pesquisar pessoas</label>
-        <input id="searchPeople"
-          class="mt-1 w-full px-3 py-2 rounded bg-white text-black"
-          placeholder="Pesquisar pessoas..." />
-      </div>
-
-      <!-- Agendas -->
-      <div>
-        <h3 class="text-lg font-semibold">Agendas</h3>
-
-        <label class="flex items-center gap-2 mt-2">
-          <input type="checkbox" id="agendaUser" checked />
-          <span>Sua Agenda</span>
-        </label>
-
-        <label class="flex items-center gap-2">
-          <input type="checkbox" id="agendaFeriados" checked />
-          <span>Feriados Nacionais</span>
-        </label>
+      <div id="sidebarContent">
+        <h2 class="text-xl font-semibold">Pesquisar pessoas</h2>
+        <!--Filtro por pessoa-->
+        <div>
+          <input id="searchPeople"
+            class="mt-1 w-full px-3 py-2 rounded bg-white text-black"
+            placeholder="Pesquisar pessoas..." />
+        </div>
       </div>
   </aside>
 
-  <!-- CONTEÚDO PRINCIPAL -->
+  <!--CONTEÚDO PRINCIPAL-->
   <main class="flex-1 p-8">
 
-    <!-- Header -->
+    <!--Header-->
     <div class="flex items-center justify-between">
 
       <h1 class="text-3xl font-bold">Minha Agenda</h1>
@@ -81,14 +58,7 @@
           <button id="nextMonth"
           class="px-3 py-2 bg-gray-200 rounded">&gt;</button>
 
-        <!-- Dropdown Mês/Programados -->
-        <select id="modeSelect"
-          class="px-3 py-2 rounded bg-white border ml-4">
-          <option value="mes">Mês</option>
-          <option value="programados">Programados</option>
-        </select>
-
-        <!-- Botão adicionar -->
+        <!--Botão adicionar-->
         <a href="compromisso.html"
            class="ml-4 px-4 py-2 bg-blue-500 rounded text-white font-semibold">
           Adicionar
@@ -97,7 +67,17 @@
     </div>
     <p class="mt-4"></p>
 
-    <!-- Conteúdo da página -->
+    <!--Dias da semana-->
+    <div id="weekdays" class="grid grid-cols-7 gap-2 mb-2 text-center font-semibold text-gray-700">
+      <div>DOM.</div>
+      <div>SEG.</div>
+      <div>TER.</div>
+      <div>QUA.</div>
+      <div>QUI.</div>
+      <div>SEX.</div>
+      <div>SAB.</div>
+    </div>
+    <!--Conteúdo da página-->
     <div id="content"></div>
 
   </main>

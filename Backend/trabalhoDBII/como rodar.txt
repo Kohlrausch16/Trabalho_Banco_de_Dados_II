@@ -1,0 +1,15 @@
+Abrir terminal do Docker e fazer cd para esta pasta e executar:
+
+docker build -t trabalho-bdii-app .
+
+
+Depois iniciar os serviços com:
+
+docker compose up -d
+
+
+No terminal, dentro da pasta do sistema (precisa estar instalado o NodeJS):
+
+npx http-server . -p 5500
+
+Utilizar a aplicação nessa porta acima.

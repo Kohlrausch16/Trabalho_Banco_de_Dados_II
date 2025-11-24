@@ -45,8 +45,6 @@
 /* Sidebar hidden */
 .sidebar.hidden { display:none; }
 
-/* Desktop-only: amplia tamanho */
 @media (max-width:1200px) {
-  /* Você disse que não precisa mobile; manter responsivo moderado */
   #viewContainer { min-height:60vh; }
 }
